@@ -1,0 +1,11 @@
+<!--头像-->
+<div class="row">
+    <div class="col-md-1 home_photo">
+        <img class="home_photo_img" th:src="@{'/'+${user.userPhoto}}">
+    </div>
+    <!--用户其他内容-->
+    <div class="col-md-8">
+        <h1 th:text="${user.userUsname}">用户名测试</h1>
+        <h3 th:text="${user.userDesc}">用户描述</h3>
+    </div>
+</div>

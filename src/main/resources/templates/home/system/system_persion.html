@@ -1,0 +1,71 @@
+<div >
+    <form method="post" id="system_up">
+        <div class="layui-form-item row">
+            <label class="layui-form-label col-md-3">用户名：</label>
+            <div class="layui-input-block col-md-9" style="margin: auto">
+                <p id="userName" style="color: #d90106; font-size: 25px"></p>
+            </div>
+        </div>
+        <div class="layui-form-item row">
+            <label class="layui-form-label col-md-3">用户昵称：</label>
+            <div class="layui-input-block col-md-9">
+                <input type="text" name="userUsname" id="userUsname"  required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input update" >
+            </div>
+        </div>
+        <div class="layui-form-item row">
+            <label class="layui-form-label col-md-3">手机号：</label>
+            <div class="layui-input-block col-md-9">
+                <input type="number" name="userPhone" id="userPhone" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input update"  >
+            </div>
+        </div>
+        <div class="layui-form-item row">
+            <label class="layui-form-label col-md-3">邮箱：</label>
+            <div class="layui-input-block col-md-9">
+                <input type="email" name="userEmail" id="userEmail" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input update" >
+            </div>
+        </div>
+        <div class="layui-form-item row">
+            <label class="layui-form-label col-md-3">qq：</label>
+            <div class="layui-input-block col-md-9">
+                <input type="number" name="userQq" id="userQq" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input update" >
+            </div>
+        </div>
+
+        <div class="layui-form-item row">
+            <label class="layui-form-label col-md-3">出生日期：</label>
+            <div class="layui-input-block col-md-9">
+                <input type="text" name="userBirthday" required id="userBirthday" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input update" >
+            </div>
+        </div>
+        <div class="layui-form-item row">
+            <label class="layui-form-label col-md-3">年龄：</label>
+            <div class="layui-input-block col-md-9">
+                <input type="number" name="userAge" id="userAge" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input update" >
+            </div>
+        </div>
+        <div class="layui-form-item row">
+            <label class="layui-form-label col-md-3">性别：</label>
+            <div class="layui-input-block col-md-9" style="margin: auto">
+                男<input type="radio" name="userSex" value="1" title="男" checked>
+                女<input type="radio" name="userSex" value="0" title="女" >
+            </div>
+        </div>
+        <div class="layui-form-item row">
+            <label class="layui-form-label col-md-3">所在地：</label>
+            <div class="layui-input-block col-md-9">
+                <input type="text" name="userAddress" id="userAddress" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input update" >
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text row">
+            <label class="layui-form-label col-md-3">自我简介：</label>
+            <div class="layui-input-block col-md-9">
+                <textarea name="userDesc" id="userDesc" placeholder="请输入内容" class="layui-textarea"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="button" class="btn btn-outline-secondary SaveDemo" >立即提交</button>
+            </div>
+        </div>
+    </form>
+</div>

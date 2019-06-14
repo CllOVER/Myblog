@@ -1,0 +1,86 @@
+/*
+顶部
+*/
+.jumbotron{
+    padding: 4rem 7rem;
+}
+.layui-main{
+    width: 1300px;
+}
+/*
+侧边栏上
+*/
+.home_side{
+    height: 1500px;
+}
+
+/*
+导航栏
+*/
+.home_nav{
+    height: 50px;
+}
+/*
+列表
+*/
+.home_blog_info > li{
+    display: inline;
+    float: right;
+    margin-left: 10px;
+}
+.home_photo_img{
+    height: 100px;
+}
+
+/*
+悬浮博客列表
+*/
+.blog_list_li span:hover{
+    color: orangered;
+}
+
+.left_next > button{
+    float: right;
+}
+
+
+/*
+右侧样式
+*/
+.announcement span, .intro span, .contact_way span, .page_view span, .like span, .page_cats span, .page_tags span, .page_time span{
+    margin: 0px auto;
+}
+.announcement_scanf{
+    height: 100px;
+    border: 1px solid;
+}
+.intro_scanf{
+    height: 150px;
+    border: 1px solid;
+}
+.contact_way_scanf{
+    height: 100px;
+    border: 1px solid;
+}
+
+/*
+左侧标签分类样式
+*/
+.cats_info, .tags_secondary, .date_secondary{
+    margin-bottom: 2px;
+}
+
+.page_view_scanf  a:hover {
+    background-color: gainsboro;
+}
+
+.like_scanf  a:hover {
+    background-color: gainsboro;
+}
+
+#v-pills-tab ,#v-pills-tabContent{
+    right: -15px;
+}
+.avatar-btns button {
+    height: 35px;
+}

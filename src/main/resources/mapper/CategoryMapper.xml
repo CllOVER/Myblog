@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cllover.myblog.front.dao.CategoryMapper">
+  <resultMap id="BaseResultMap" type="cn.cllover.myblog.front.pojo.Category">
+    <id column="cat_id" jdbcType="BIGINT" property="catId" />
+    <result column="cat_name" jdbcType="VARCHAR" property="catName" />
+    <result column="cat_desc" jdbcType="VARCHAR" property="catDesc" />
+    <result column="cat_status" jdbcType="INTEGER" property="catStatus" />
+    <result column="cat_user_id" jdbcType="BIGINT" property="catUserId" />
+  </resultMap>
+
+  <select id="saveAll"  resultMap="BaseResultMap">
+    INSERT IGNORE INTO `myblog_category`(`cat_name`, `cat_user_id`) VALUES(#{catName}, #{catUserId});
+  </select>
+  <select id="findCatAndCount" resultType="hashmap">
+    select cat_name,ca_count
+     from myblog_category
+     join cat_art_count
+     on cat_id = ca_id
+     and cat_user_id = ca_user_id
+     where cat_user_id = #{userId}
+  </select>
+
+    <!--<select id="findByCatName" resultType="Hashmap">
+        select count(*) from myblog_category where cat_name = #{catName}
+    </select>-->
+
+    <select id="findBycatName" resultMap="BaseResultMap">
+        select cat_name,cat_id from myblog_category
+          where cat_name = #{catName}
+          and cat_user_id = #{catUserId}
+    </select>
+
+</mapper>

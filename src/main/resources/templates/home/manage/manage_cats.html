@@ -1,0 +1,40 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/u/home}">主页</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="#">分类管理</a></li>
+    </ol>
+</nav>
+
+<div class="list-group list-group-flush">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">
+            <div class="row">
+                <span class="col-md-7">分类名(关联博客量)</span>
+                <span class="col-md-1">操作</span>
+                <span class="col-md-1">操作</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="list-group list-group-flush home_manage_cat">
+    <ul class="list-group"></ul>
+</div>
+<br>
+
+<!--分页信息-->
+<div class="row">
+    <div class="col-md-8" ></div>
+    <div class="col-md-4 cats_pagination"></div>
+</div>
+
+<hr>
+<div >
+    <h3>添加标签:</h3>
+    <div class="col-md-5 input-group mb-3">
+        <input type="text" class="form-control"   aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Button</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>---主页</title>
+    <link rel="stylesheet" th:href="@{/static/bootstrap/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/static/layui/css/layui.css}">
+    <link rel="shortcut icon" th:href="@{/static/images/logo_col.ico}">
+    <link rel="stylesheet" th:href="@{/static/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/css/home.css}">
+    <link rel="stylesheet" th:href="@{/static/css/index.css}">
+</head>
+<body>
+<!--顶部-->
+<div class="jumbotron">
+    <!--头像-->
+    <div class="row">
+        <div class="col-md-1 home_photo">
+            <img class="home_photo_img" th:src="@{'/'+${user.userPhoto}}">
+        </div>
+        <!--用户其他内容-->
+        <div class="col-md-8">
+            <h1 th:text="${user.userUsname}">用户名测试</h1>
+            <h3 th:text="${user.userDesc}">用户描述</h3>
+        </div>
+    </div>
+
+</div>
+<!--主体-->
+<div class="layui-main">
+
+    <div class="row">
+        <!--左侧-->
+        <div class="col-md-3 home_side">
+            <div class="row announcement">
+                <span >公告</span>
+                <div class="col-md-12 announcement_scanf"></div>
+            </div>
+            <div class="row intro">
+                <span>个人简介</span>
+                <div class="col-md-12 intro_scanf"></div>
+            </div>
+            <hr class="layui-bg-cyan">
+            <div class="row contact_way">
+                <span>联系方式</span>
+                <div class="col-md-12 contact_way_scanf"></div>
+            </div><br><br>
+
+            <div class="row page_tags">
+                <span >我的标签</span>
+                <div class="col-md-12 page_tags_scanf"></div>
+            </div>
+            <div class="row page_cats">
+                <span >博客分类</span>
+                <div class="col-md-12 page_cats_scanf"></div>
+            </div>
+            <div class="row page_time">
+                <span >发表时间</span>
+                <div class="col-md-12 page_time_scanf"></div>
+            </div>
+
+            <div class="row page_view">
+                <span >浏览量排行</span>
+                <div class="col-md-12 page_view_scanf"></div>
+            </div>
+            <div class="row like">
+                <span>点赞量排行</span>
+                <div class="col-md-12 like_scanf"></div>
+            </div>
+
+
+        </div>
+        <!--左侧结束-->
+
+        <!--右侧导航栏-->
+        <div class="col-md-9">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light home_nav">
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/index}">首页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">博客</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/add_blog}">新增</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">管理</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">待续</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">待续</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                    </ul>
+                </div>
+            </nav><br>
+
+            <!--博客列表-->
+            <ul id="home_list"></ul><br>
+            <!--分页信息-->
+            <div class="row page_pagination">
+                <div class="col-md-1" ></div>
+                <div class="col-md-2 left_prev_div" ></div>
+                <!--分页-->
+                <div class="col-md-2"></div>
+                <div class="col-md-2 blog_pagination"></div>
+                <div class="col-md-2"></div>
+                <!--下一页-->
+                <div class="col-md-2 left_next_div"></div>
+                <div class="col-md-1" ></div>
+            </div>
+            <!--分页end-->
+
+        </div>
+        <!--右侧end-->
+
+    </div>
+</div>
+<!--底部-->
+<div class="layui-footer"></div>
+
+</body>
+<script type="text/javascript" th:src="@{/static/js/jquery-3.3.1.js}"></script>
+<script type="text/javascript" th:src="@{/static/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/index.js}"></script>
+<script type="text/javascript" th:src="@{/static/bootstrap/js/bootstrap.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/home/home.js}"></script>
+<script th:inline="javascript">
+
+    var msg = [[${user}]];
+    if (msg == 0){
+        $(".login_Btn").show();
+        $(".user_info").hide();
+    }else {
+        $(".login_Btn").hide();
+        $(".user_info").show();
+    }
+    var href = [[@{/}]];
+</script>
+</html>

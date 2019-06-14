@@ -1,0 +1,16 @@
+/*标题等样式字体色彩调整
+*/
+.add_blog_title span{
+    font-size: 24px;
+    font-family: 楷体;
+    font-weight: bolder;
+}
+.main span{
+    font-size: 24px;
+    font-family: 楷体;
+    font-weight: bolder;
+}
+
+.collapse button{
+margin-right: 5px;
+}

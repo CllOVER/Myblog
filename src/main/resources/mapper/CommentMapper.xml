@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cllover.myblog.front.dao.CommentMapper">
+  <resultMap id="BaseResultMap" type="cn.cllover.myblog.front.pojo.Comment">
+    <id column="com_id" jdbcType="BIGINT" property="comId" />
+    <result column="com_user_id" jdbcType="BIGINT" property="comUserId" />
+    <result column="com_content" jdbcType="VARCHAR" property="comContent" />
+    <result column="com_like" jdbcType="BIGINT" property="comLike" />
+    <result column="com_art_id" jdbcType="BIGINT" property="comArtId" />
+    <result column="com_date" jdbcType="TIMESTAMP" property="comDate" />
+    <result column="com_status" jdbcType="INTEGER" property="comStatus" />
+    <result column="com_ip" jdbcType="VARCHAR" property="comIp" />
+    <association property="user" javaType="cn.cllover.myblog.front.pojo.User">
+      <id column="user_id" jdbcType="BIGINT" property="userId" />
+      <result column="user_usname" jdbcType="VARCHAR" property="userUsname" />
+      <result column="user_photo" jdbcType="VARCHAR" property="userPhoto" />
+    </association>
+  </resultMap>
+
+  <insert id="saveComment" useGeneratedKeys="true">
+    insert into myblog_comment(com_user_id,com_art_id,com_content,com_date,com_ip,com_status)
+    values (#{comUserId},#{comArtId},#{comContent},#{comDate},#{comIp},1)
+  </insert>
+  
+  <select id="findAllByOne" resultMap="BaseResultMap">
+    select * from myblog_comment where com_art_id = #{comArtId}
+  </select>
+  <select id="findAllByUser" resultMap="BaseResultMap">
+    select * from myblog_comment join myblog_user
+     where com_art_id = #{comArtId}
+      and com_user_id = user_id
+  </select>
+</mapper>

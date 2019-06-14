@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cllover.myblog.front.dao.TagArtCountMapper">
+    <resultMap id="BaseResultMap" type="cn.cllover.myblog.front.pojo.TagArtCount">
+        <result column="ta_id" jdbcType="BIGINT" property="TaId" ></result>
+        <result column="ta_count" jdbcType="BIGINT" property="TaCount" ></result>
+        <result column="ta_user_id" jdbcType="BIGINT" property="TaUserId" ></result>
+    </resultMap>
+
+
+
+    <select id="findCountId" resultType="java.lang.Long">
+        select count(ta_id) from tag_art_count where ta_id =#{taId} and ta_user_id = #{TaUserId}
+    </select>
+
+    <update id="updateCount" >
+        update tag_art_count set ta_count =ta_count+1 where ta_id = #{taId} and ta_user_id = #{TaUserId}
+    </update>
+
+    <update id="updateCountBySmall">
+        update tag_art_count set ta_count =ta_count-1 where ta_id = #{taId} and ta_user_id = #{TaUserId}
+    </update>
+    
+    <insert id="saveTagId">
+        insert into tag_art_count(ta_id,ta_user_id,ta_count) values (#{taId},#{TaUserId},1)
+    </insert>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cllover.myblog.front.dao.LoginCodeMapper">
+  <resultMap id="BaseResultMap" type="cn.cllover.myblog.front.pojo.LoginCode">
+    <id column="login_code_id" jdbcType="BIGINT" property="loginCodeId" />
+    <result column="login_code_username" jdbcType="VARCHAR" property="loginCodeUsername" />
+    <result column="login_code_rightcode" jdbcType="VARCHAR" property="loginCodeRightcode" />
+    <result column="login_code_trycode" jdbcType="VARCHAR" property="loginCodeTrycode" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="login_date" jdbcType="TIMESTAMP" property="loginDate" />
+  </resultMap>
+
+</mapper>

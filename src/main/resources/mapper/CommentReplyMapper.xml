@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cllover.myblog.front.dao.CommentReplyMapper">
+  <resultMap id="BaseResultMap" type="cn.cllover.myblog.front.pojo.CommentReply">
+    <id column="re_id" jdbcType="BIGINT" property="reId" />
+    <result column="re_com_id" jdbcType="BIGINT" property="reComId" />
+    <result column="re_user_id" jdbcType="BIGINT" property="reUserId" />
+    <result column="re_usered_id" jdbcType="BIGINT" property="reUseredId" />
+    <result column="re_date" jdbcType="TIMESTAMP" property="reDate" />
+    <result column="re_content" jdbcType="VARCHAR" property="reContent" />
+    <result column="re_status" jdbcType="INTEGER" property="reStatus" />
+    <result column="re_ip" jdbcType="VARCHAR" property="reIp" />
+    <result column="re_like" jdbcType="BIGINT" property="reLike" />
+  </resultMap>
+
+  <select id="findByComment" resultMap="BaseResultMap">
+    select * from comment_reply where re_usered_id = #{reUseredId} and re_com_id = #{reComId}
+  </select>
+</mapper>

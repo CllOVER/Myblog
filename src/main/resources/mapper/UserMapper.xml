@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cllover.myblog.front.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="cn.cllover.myblog.front.pojo.User">
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_usname" jdbcType="VARCHAR" property="userUsname" />
+    <result column="user_pass" jdbcType="VARCHAR" property="userPass" />
+    <result column="user_phone" jdbcType="INTEGER" property="userPhone" />
+    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+    <result column="user_qq" jdbcType="BIGINT" property="userQq" />
+    <result column="user_age" jdbcType="INTEGER" property="userAge" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_sex" jdbcType="VARCHAR" property="userSex" />
+    <result column="user_birthday" jdbcType="TIMESTAMP" property="userBirthday" />
+    <result column="user_address" jdbcType="VARCHAR" property="userAddress" />
+    <result column="user_photo" jdbcType="VARCHAR" property="userPhoto" />
+    <result column="user_status" jdbcType="INTEGER" property="userStatus" />
+    <result column="user_desc" jdbcType="VARCHAR" property="userDesc" />
+    <result column="user_register_date" jdbcType="TIMESTAMP" property="userRegisterDate" />
+    <result column="user_register_ip" jdbcType="VARCHAR" property="userRegisterIp" />
+    <result column="user_frozen" jdbcType="INTEGER" property="userFrozen" />
+    <result column="user_art_id" jdbcType="BIGINT" property="userArtId" />
+  </resultMap>
+
+  <select id="selectBypassword" resultMap="BaseResultMap" parameterType="cn.cllover.myblog.front.pojo.User">
+    SELECT * FROM myblog_user WHERE user_name = #{userName}
+  </select>
+
+  <!--select * from myblog_user join myblog_category join myblog_tag on cat_user_id = user_id and
+ tag_user_id = user_id where user_id = 15436996140;-->
+
+
+  <update id="updateByPrimaryKeyBySelective" parameterType="cn.cllover.myblog.front.pojo.User">
+    update myblog_user
+        set user_usname = #{userUsname,jdbcType=VARCHAR},
+        user_phone = #{userPhone,jdbcType=INTEGER},
+        user_email = #{userEmail,jdbcType=VARCHAR},
+        user_qq = #{userQq,jdbcType=BIGINT},
+        user_age = #{userAge,jdbcType=INTEGER},
+        user_sex = #{userSex,jdbcType=VARCHAR},
+        user_birthday = #{userBirthday,jdbcType=TIMESTAMP},
+        user_address = #{userAddress,jdbcType=VARCHAR},
+        user_desc = #{userDesc,jdbcType=VARCHAR}
+    where user_id = (select a.user_id from
+    (select user_id from myblog_user where user_name = #{userName,jdbcType=VARCHAR}) a )
+  </update>
+</mapper>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>登录</title>
+    <!--默认样式-->
+    <!--<link rel="stylesheet" href="css/reset.css">-->
+    <link rel="stylesheet" th:href="@{/static/bootstrap/css/bootstrap.css}">
+    <!--css3动画库-->
+    <link rel="stylesheet" th:href="@{/static/css/animate.css}">
+    <!--banner大图基础样式-->
+    <link rel="stylesheet" th:href="@{/static/css/slick.css}">
+        <!--图片和滚屏样式-->
+    <link rel="stylesheet" th:href="@{/static/css/login_images.css}">
+    <link rel="stylesheet" th:href="@{/static/css/login.css}">
+    <link rel="stylesheet"  th:href="@{/static/layui/css/layui.css}">
+    <link rel="stylesheet"  th:href="@{/static/css/font.css}">
+    <link rel="shortcut icon" th:href="@{/static/images/logo_col.ico}">
+
+</head>
+<body>
+
+
+<!-- 内容 -->
+<div id="index_main" class="index_main">
+    <!--登录-->
+    <div class="login_model">
+
+        <div class="login layui-anim layui-anim-up login_input" style="height: 440px">
+            <div class="message">
+                <span>欢迎您！登录</span>
+            </div><br>
+            <!--<div id="darkbannerwrap"></div>-->
+            <form method="post" class="layui-form" action="/login" >
+                <input  name="userName" placeholder="用户名"  type="text" lay-verify="required" class="layui-input " >
+                <hr class="hr15">
+                <input  name="userPass" lay-verify="required" placeholder="密码"  type="password" class="layui-input ">
+                <hr class="hr15">
+                <input  type="checkbox" name="rememberme" title="记住密码？" lay-skin="primary" >
+
+                <span class="codespan" th:text="${msg}" style="color: red"></span>
+                <hr class="hr15">
+                <input  lay-verify="required" style="height: 40px;width: 45%;" type="text"  name="tryCode" placeholder="请输入验证码">&emsp;&emsp;
+                <!--防止浏览器缓存-->
+                <img class=".loginCode" alt="点击刷新验证码" onclick="this.src='/defaultKaptcha?d='+new Date()*1" th:src="@{/defaultKaptcha}" />
+                <hr class="hr15">
+                <input value="登录" class="loginBtn" lay-submit lay-filter="login" style="width:100%;" type="button">
+                <hr class="hr20" >
+            </form>
+            <div>
+                <a href="#">没有账号？这里注册</a>
+                &emsp;&emsp;&emsp;&emsp;
+                <a class="col-md-10"  href="#">忘记密码</a>
+            </div>
+
+        </div>
+    </div>
+    <!--样式表-->
+    <div class="section section1" th:include="common/login_background"></div>
+
+</div>
+</body>
+<script th:inline="javascript">
+    /*全局路径设置*/
+    var href = [[@{/}]];
+</script>
+<script th:src="@{/static/js/jquery-3.3.1.js}"></script>
+<script th:src="@{/static/js/xadmin.js}"></script>
+<script th:src="@{/static/layui/layui.js}"></script>
+<script th:src="@{/static/js/jquery.fullPage.min.js}"></script>
+<script th:src="@{/static/js/login_slick.js}"></script>
+<script th:src="@{/static/js/login_view.js}"></script>
+</html>

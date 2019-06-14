@@ -1,0 +1,1 @@
+10:03:33.181 default [http-nio-5200-exec-1] ERROR org.crazycake.shiro.RedisSessionDAO - read session error. settionId=33704d21-a2f4-49c2-8636-c0a531f13e2f

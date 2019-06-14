@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cllover.myblog.front.dao.CatArtCountMapper">
+    <resultMap id="BaseResultMap" type="cn.cllover.myblog.front.pojo.CatArtCount">
+        <result column="ca_id" jdbcType="BIGINT" property="CaId" ></result>
+        <result column="ca_count" jdbcType="BIGINT" property="CaCount" ></result>
+        <result column="ca_user_id" jdbcType="BIGINT" property="CaUserId" ></result>
+    </resultMap>
+
+
+
+    <select id="findCountId" resultType="java.lang.Long">
+        select count(ca_id) from cat_art_count where ca_id =#{caId} and ca_user_id = #{CaUserId};
+    </select>
+    <update id="updateCount">
+        update cat_art_count set ca_count =ca_count+1 where ca_id = #{caId} and ca_user_id = #{CaUserId}
+    </update>
+
+    <update id="updateCountBySmall">
+        update cat_art_count set ca_count =ca_count-1 where ca_id = #{caId} and ca_user_id = #{CaUserId}
+    </update>
+
+    <insert id="saveCagId">
+        insert into cat_art_count (ca_id,ca_user_id,ca_count) values (#{caId},#{CaUserId},1)
+    </insert>
+</mapper>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>你所访问的资源不存在！</title>
+    <link rel="stylesheet" th:href="@{/static/bootstrap/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/static/css/index.css}">
+    <link rel="shortcut icon" th:href="@{/static/images/logo_col.ico}">
+    <link rel="stylesheet" th:href="@{/static/css/404.css}">
+    <script type="text/javascript" th:src="@{/static/js/bodymovin.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/data.js}"></script>
+    <script type="text/javascript" th:src="@{/static/bootstrap/js/bootstrap.js}"></script>
+</head>
+<body>
+<div class="container" th:include="common/header"></div>
+
+<!--动画区域-->
+<div id="svgContainer">
+    <a th:href="@{/index}">返回首页</a>
+</div>
+
+<script type="text/javascript">
+    var svgContainer = document.getElementById('svgContainer');
+    var animItem = bodymovin.loadAnimation({
+        wrapper: svgContainer,
+        animType: 'svg',
+        loop: true,
+        animationData: JSON.parse(animationData)
+    });
+</script>
+</body>
+</html>

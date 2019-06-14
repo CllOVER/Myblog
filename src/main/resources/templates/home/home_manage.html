@@ -1,0 +1,22 @@
+<div class="nav flex-column nav-pills col-md-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a class="nav-link active" id="v-pills-article-tab" data-toggle="pill" href="#v-pills-article" role="tab" aria-controls="v-pills-article" aria-selected="true">博客管理</a>
+    <a class="nav-link" id="v-pills-tags-tab" data-toggle="pill" href="#v-pills-tags" role="tab" aria-controls="v-pills-tags" aria-selected="false">标签管理</a>
+    <a class="nav-link" id="v-pills-cats-tab" data-toggle="pill" href="#v-pills-cats" role="tab" aria-controls="v-pills-cats" aria-selected="false">分类管理</a>
+    <a class="nav-link" id="v-pills-files-tab" data-toggle="pill" href="#v-pills-files" role="tab" aria-controls="v-pills-files" aria-selected="false">文件上传</a>
+    <a class="nav-link" id="v-pills-status-tab" data-toggle="pill" href="#v-pills-status" role="tab" aria-controls="v-pills-status" aria-selected="false">草稿箱</a>
+    <a class="nav-link" id="v-pills-setting-tab" data-toggle="pill" href="#v-pills-setting" role="tab" aria-controls="v-pills-setting" aria-selected="false">待续</a>
+</div>
+<div class="tab-content col-md-10" id="v-pills-tabContent">
+    <div class="tab-pane fade show active" id="v-pills-article" role="tabpanel" aria-labelledby="v-pills-article-tab"  th:include="home/manage/manage_article"></div>
+    <div class="tab-pane fade" id="v-pills-tags" role="tabpanel" aria-labelledby="v-pills-tags-tab" th:include="home/manage/manage_tags"></div>
+    <div class="tab-pane fade" id="v-pills-cats" role="tabpanel" aria-labelledby="v-pills-cats-tab" th:include="home/manage/manage_cats"></div>
+    <div class="tab-pane fade" id="v-pills-files" role="tabpanel" aria-labelledby="v-pills-files-tab">
+        文件上传管理
+    </div>
+    <div class="tab-pane fade" id="v-pills-status" role="tabpanel" aria-labelledby="v-pills-status-tab">
+        草稿箱
+    </div>
+    <div class="tab-pane fade" id="v-pills-setting" role="tabpanel" aria-labelledby="v-pills-setting-tab">
+        待续
+    </div>
+</div>

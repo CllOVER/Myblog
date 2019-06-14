@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cllover.myblog.front.dao.TagMapper">
+  <resultMap id="BaseResultMap" type="cn.cllover.myblog.front.pojo.Tag">
+    <id column="tag_id" jdbcType="BIGINT" property="tagId" />
+    <result column="tag_desc" jdbcType="VARCHAR" property="tagDesc" />
+    <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
+    <result column="tag_status" jdbcType="INTEGER" property="tagStatus" />
+    <result column="tag_user_id" jdbcType="BIGINT" property="tagUserId" />
+  </resultMap>
+
+    <select id="findAndcount" resultType="Hashmap">
+        select tag_name,ta_count
+         from myblog_tag
+         join tag_art_count
+         on tag_id = ta_id
+         and tag_user_id = ta_user_id
+         where tag_user_id = #{userId}
+    </select>
+
+  <insert id="saveAll" >
+    INSERT IGNORE INTO `myblog_tag`(`tag_name`, `tag_user_id`) VALUES(#{tagName}, #{tagUserId});
+  </insert>
+
+  <select id="findTagsIdAndCountArt" resultType="Hashmap">
+    select count(art_tag_id)art_tag_id,tag_name,tag_status
+     from myblog_article join myblog_tag
+     where tag_user_id  = art_user_id
+     and art_tag_id = tag_id
+     and art_user_id = #{userId}
+     group by art_tag_id
+  </select>
+
+    <select id="findByCounttagName" resultType="Hashmap">
+        select count(*) from myblog_tag
+          where tag_name = #{tagName}
+          and tag_user_id = #{tagUserId}
+    </select>
+
+    <select id="findBytagName" resultMap="BaseResultMap">
+        select tag_name,tag_id from myblog_tag
+          where tag_name = #{tagName}
+          and tag_user_id = #{tagUserId}
+    </select>
+</mapper>

@@ -1,0 +1,38 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/u/home}">主页</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="#">博客管理</a></li>
+    </ol>
+</nav>
+<div class="list-group list-group-flush">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">
+            <div class="row">
+            <span class="col-md-7">标题</span>
+            <span class="col-md-1">状态</span>
+            <span class="col-md-1">阅读量</span>
+            <span class="col-md-1">点赞量</span>
+            <span class="col-md-1">操作</span>
+            <span class="col-md-1">操作</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="list-group list-group-flush home_manage_article">
+    <ul class="list-group">
+    </ul>
+</div>
+
+<!--分页信息-->
+<div class="row page_pagination">
+    <div class="col-md-1" ></div>
+    <div class="col-md-2 left_prev_div" ></div>
+    <!--分页-->
+    <div class="col-md-2"></div>
+    <div class="col-md-2 blog_pagination"></div>
+    <div class="col-md-2"></div>
+    <!--下一页-->
+    <div class="col-md-2 left_next_div"></div>
+    <div class="col-md-1" ></div>
+</div>

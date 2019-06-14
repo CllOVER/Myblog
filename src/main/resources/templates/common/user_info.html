@@ -1,0 +1,45 @@
+<!--弹出个人信息-->
+<div class="row model_user_info">
+    <div class="col-3">
+        <img th:src="@{'/'+${user.userPhoto}}" alt="..." class="img-circle photo_med">
+
+    </div>
+    <div class="col-9 user_Base">
+        <a th:text="${user.userUsname}">用户名AAAAAAAA</a>
+        <a th:text="(${user.userSex} == 1)?'男':'女'">sex</a>
+        <a th:text="${user.userEmail}">用户名AAAAAAAA</a>
+        <a th:text="${#dates.format(user.userBirthday,'yyyy-mm-dd')}">chushengriqi</a>
+    </div>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <button type="button" class="btn btn-outline-secondary btn-sm" th:href="@{/u/home}">我的主页</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm">我的博客</button>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <button type="button" class="btn btn-outline-secondary btn-sm">管理界面</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm">待续待续</button>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+
+            <a type="button" class="btn btn-outline-secondary btn-sm" th:href="@{logout}">安全退出</a>
+            <button type="button" class="btn btn-outline-secondary btn-sm">系统设置</button>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+
+</div>

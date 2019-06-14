@@ -1,0 +1,16 @@
+<div class="nav flex-column nav-pills col-md-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a class="nav-link active" id="v-pills-persion-tab" data-toggle="pill" href="#v-pills-persion" role="tab" aria-controls="v-pills-persion" aria-selected="true">个人信息设置</a>
+    <a class="nav-link" id="v-pills-photo-tab" data-toggle="pill" href="#v-pills-photo" role="tab" aria-controls="v-pills-photo" aria-selected="false">头像上传设置</a>
+    <a class="nav-link" id="v-pills-setting-tab" data-toggle="pill" href="#v-pills-setting" role="tab" aria-controls="v-pills-setting" aria-selected="false">系统设置</a>
+
+</div>
+<div class="tab-content col-md-10" id="v-pills-tabContent">
+    <div class="tab-pane fade show active" id="v-pills-persion" role="tabpanel" aria-labelledby="v-pills-persion-tab" th:include="home/system/system_persion" ></div>
+
+    <div class="tab-pane fade" id="v-pills-photo" role="tabpanel" aria-labelledby="v-pills-photo-tab" th:include="home/system/system_photo" >
+        头像上传设置
+    </div>
+    <div class="tab-pane fade" id="v-pills-setting" role="tabpanel" aria-labelledby="v-pills-setting-tab">
+        系统设置
+    </div>
+</div>

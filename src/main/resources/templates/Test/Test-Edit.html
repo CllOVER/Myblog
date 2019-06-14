@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新增博客</title>
+    <link rel="shortcut icon" th:href="@{/static/images/logo_col.ico}">
+    <link rel="stylesheet" th:href="@{/static/bootstrap/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/static/layui/css/layui.css}" >
+    <link rel="stylesheet" th:href="@{/static/css/index.css}">
+    <link rel="stylesheet" th:href="@{/static/css/blog/add_blog.css}">
+    <script th:src="@{http://cdn.bootcss.com/tinymce/4.4.3/tinymce.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery-3.3.1.js}"></script>
+    <script type="text/javascript" th:src="@{/static/layui/layui.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/index.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/thymce_tools.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/zh_CN.js}"></script>
+    <script type="text/javascript" th:src="@{/static/bootstrap/js/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/blog/blog_Option.js}"></script>
+    <script>
+        tinymce.init({
+            //加载中文语言包
+            language: "zh_CN",
+        });
+    </script>
+<body>
+<!--顶部开始-->
+<div class="container" th:include="common/header"></div>
+<!--顶部end-->
+<div class="model_user" style="padding: 20px" th:include="common/user_info"></div>
+
+
+<div class="main">
+    <div class="form-group add_blog_title">
+        <label class="control-label" for="inputSuccess1"><span>标题：</span></label>
+        <input type="text" name="artTitle" class="form-control" id="inputSuccess1" >
+    </div>
+    <span>内容：(<span style="color: red">暂不支持同步保存功能</span>)</span>
+    <!--编写内容代码-->
+    <textarea name="artContent"></textarea>
+    <hr class="hr15">
+
+    <!--分类-->
+    <div class="row">
+        <div class="input-group mb-3 col-md-6">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" type="button">加入此分类:</button>
+            </div>
+            <input type="text" name="catName" class="form-control cads" placeholder="" aria-label="" aria-describedby="basic-addon1">
+            <!--已有分类-->
+            <p>
+                <button class="btn btn-primary btn-outline-info" type="button" data-toggle="collapse" data-target="#collapseExample_cad" aria-expanded="false" aria-controls="collapseExample_cad">
+                    选择已有分类
+                </button>
+            </p>
+
+        </div>
+
+
+        <div class="input-group mb-3 col-md-6">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" type="button">加入此标签:</button>
+            </div>
+            <input type="text" name="tagName" class="form-control tags" placeholder="" aria-label="" aria-describedby="basic-addon1">
+            <!--已有标签-->
+            <p>
+                <button class="btn btn-primary btn-outline-info" type="button" data-toggle="collapse" data-target="#collapseExample_tag" aria-expanded="false" aria-controls="collapseExample_tag">
+                    选择已有标签
+                </button>
+            </p>
+        </div>
+
+        <!--弹出-->
+        <div class=" col-md-6">
+            <div class="collapse" id="collapseExample_cad">
+                <div class="card card-body">
+                    <div class="col-md-12">
+                        <button th:each="cat:${cats}"  th:text="${cat.catName}" type="button" class="btn btn-outline-secondary btn-sm">Secondary</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-md-6">
+            <div class="collapse" id="collapseExample_tag">
+                <div class="card card-body">
+                    <div class="col-md-12">
+                        <button th:each="tag:${tags}"  th:text="${tag.tagName}" type="button" class="btn btn-outline-secondary btn-sm">Secondary</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--是否置顶-->
+    <div class="row add_top">
+        <div class="btn-group btn-group-toggle col-md-4" data-toggle="buttons">
+            <span>(<span style="color: red">深色默认选中</span>)置顶：</span>
+            <label class="btn btn-secondary active">
+                <input type="radio" name="artTop" value="0"  autocomplete="off" >否
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="artTop" value="1"  autocomplete="off" checked> 是
+            </label>
+        </div>
+
+        <!--是否可以公开-->
+        <div class="btn-group btn-group-toggle col-md-4 add_open" data-toggle="buttons">
+            <span>公开：</span>
+            <label class="btn btn-secondary active">
+                <input type="radio" name="artOpenPrivate" value="1" autocomplete="off" checked>是
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="artOpenPrivate" value="0" autocomplete="off"> 否
+            </label>
+        </div>
+
+        <!--存入草稿-->
+        <div class="btn-group btn-group-toggle col-md-4 add_open" data-toggle="buttons">
+            <span>公开：</span>
+            <label class="btn btn-secondary active">
+                <input type="radio" name="artStatus" value="1" autocomplete="off" checked>发布？
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="artStatus" value="0" autocomplete="off"> 保存草稿?
+            </label>
+        </div>
+
+    </div>
+    <!--博客描述-->
+    <div class="form-group add_blog_title">
+        <label class="control-label" for="inputSuccess1"><span>博客描述：</span></label>
+        <input type="text" name="artDesc" class="form-control artDesc"  aria-describedby="helpBlock2">
+    </div>
+    <!--博客简要-->
+    <div class="form-group add_blog_title">
+        <label class="control-label" for="inputSuccess1"><span>博客简要：</span></label>
+        <input type="text" name="artPoint" class="form-control artPoint"  aria-describedby="helpBlock2">
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <button type="button" id="blog_succ" class="btn btn-outline-success btn-block add_Btn">提交</button>
+        </div>
+    </div>
+</div>
+
+
+<!--底部-->
+<div class="footer" th:include="common/footer"></div>
+</body>
+<script th:inline="javascript">
+    /*全局路径设置*/
+
+    var msg = [[${user}]];
+    if (msg == 0){
+        $(".login_Btn").show();
+        $(".user_info").hide();
+    }else {
+        $(".login_Btn").hide();
+        $(".user_info").show();
+    }
+    var href = [[@{/}]];
+
+</script>
+</html>

@@ -1,0 +1,13 @@
+/*评论*/
+.comment_info{
+
+    width: 55%;
+}
+.comment_content{
+    word-break: break-all;  /*自动换行*/
+
+}
+
+.main_comment1{
+    line-height: 0.5;
+}

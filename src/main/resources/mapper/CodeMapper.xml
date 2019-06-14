@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cllover.myblog.front.dao.CodeMapper">
+  <resultMap id="BaseResultMap" type="cn.cllover.myblog.front.pojo.Code">
+    <id column="code_id" jdbcType="BIGINT" property="codeId" />
+    <result column="code_right_code" jdbcType="VARCHAR" property="codeRightCode" />
+    <result column="code_address_ip" jdbcType="VARCHAR" property="codeAddressIp" />
+    <result column="code_date" jdbcType="TIMESTAMP" property="codeDate" />
+  </resultMap>
+</mapper>
