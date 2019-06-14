@@ -1,5 +1,5 @@
 # myblog
-1.前端使用技术
+# 前端使用技术
 Layui
 Bootstrap 4.0
 Jquary
@@ -12,7 +12,7 @@ Layui.carousel组件
 Kaptcha组件
 Ajax
 
-2.后端使用技术
+# 后端使用技术
 Springboot
 Springmvc
 Spring
