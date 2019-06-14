@@ -1,26 +1,25 @@
 # myblog
 # 前端使用技术
-Layui
-Bootstrap 4.0
-Jquary
-Markerdowm
-Bootstrap-Navbar组件
-TinyMEC组件
-Layedit组件
-Jquary-animate组件
-Layui.carousel组件
-Kaptcha组件
-Ajax
+###### Layui
+###### Bootstrap 4.0
+###### Jquary
+###### Bootstrap-Navbar组件
+###### TinyMEC组件
+###### Layedit组件
+###### Jquary-animate组件
+###### Layui.carousel组件
+###### Kaptcha组件
+###### Ajax交互
 
 # 后端使用技术
-Springboot
-Springmvc
-Spring
-Mybatis
-通用mapper
-Shiro
-Redis
-Logback日志
+###### Springboot
+###### Springmvc
+###### Spring
+###### Mybatis
+###### 通用mapper
+###### Shiro
+###### Redis
+###### Logback日志
 
 3.状态码解析
 200：成功
